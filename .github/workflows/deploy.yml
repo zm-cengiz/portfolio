@@ -24,3 +24,10 @@ jobs:
           context: .
           push: true
           tags: marzia123/portfolio:latest
+
+      - name: Deploy to Azure Web App
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: marziaPortfolio
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+          images: marzia123/portfolio:latest
